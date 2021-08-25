@@ -6,9 +6,9 @@ Dados iniciais das telas de agendamentos.
 
 return : 
 
-id: number,
-name: string,
-state : string
+id: number,\
+name: string,\
+state : string\
 
 /services - rota retorna os serviços
 
