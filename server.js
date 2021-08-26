@@ -16,7 +16,24 @@ server.put('/changepass', (req,res) => {
     }else {
         return res.json({status : false})
     }
-} )
+})
+
+server.get('/services', (req, res) => {
+    const services = [
+        {
+            id: 1,
+            title: "Agendamento",
+            description: "Marque consultas rapidamente"
+        },
+        {
+            id: 2,
+            title: "Teleconsultas",
+            description: "Faça sua consulta de casa."
+        }
+    ];
+
+    return res.json({services});
+})
 const PORT = process.env.PORT || 8000;
 
 server.listen(PORT);
