@@ -1,16 +1,21 @@
-const jsonServer = require('json-server')
-const server = jsonServer.create();
-const router = jsonServer.router('./db.json')
-const middlewares = jsonServer.defaults({
-    static:'./biuld'
-});
+const express = require('express')
+ var bodyParser = require('body-parser')
 
-const PORT = process.env.PORT || 8000;
-server.use(middlewares);
-server.use(jsonServer.rewriter({
-    '/api/*':'/$1',
-}))
-server.use(router);
-server.listen(PORT, () => {
-    console.log('Server is running')
-})
+const server  = express();
+
+server.use(bodyParser.urlencoded({ extended: false }))
+
+server.use(express.json());
+
+server.put('/changepass', (req,res) => {
+    const password = "1234ab"
+
+    const comparePass = req.body;
+    if( comparePass.password === password) {
+        return res.json(true)
+    }else {
+        return res.json(false)
+    }
+} )
+
+server.listen(3000);
