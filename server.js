@@ -12,9 +12,9 @@ server.put('/changepass', (req,res) => {
 
     const comparePass = req.body;
     if( comparePass.password === password) {
-        return res.json(true)
+        return res.json({status: true})
     }else {
-        return res.json(false)
+        return res.json({status : false})
     }
 } )
 const PORT = process.env.PORT || 8000;
