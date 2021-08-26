@@ -17,5 +17,6 @@ server.put('/changepass', (req,res) => {
         return res.json(false)
     }
 } )
+const PORT = process.env.PORT || 8000;
 
-server.listen(3000);
+server.listen(PORT);
