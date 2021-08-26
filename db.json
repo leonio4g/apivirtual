@@ -1,63 +1,5 @@
 {
-    "clients": [
-        {
-            "id": 1,
-            "name": "Fulano Vicente",
-            "cpf": 12345678989,
-            "email": "fulano@gmail.com",
-            "phone": "+55 83 98741-6589",
-            "password": "1234ab",
-            "dependente": false,
-            "contracts": [
-                {
-                    "id": 1,
-                    "name_recipient_id": 1,
-                    "termo": 0001,
-                    "contrato": 001,
-                },
-                {
-                    "id": 2,
-                    "name_recipient_id": 2,
-                    "termo": 00002,
-                    "contrato": 002,
-                },
-                {
-                    "id": 3,
-                    "name_recipient_id": 3,
-                    "termo": 00003,
-                    "contrato": 003,
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "name": "Sicrano Vicente",
-            "cpf": 98765432112,
-            "email": "sicrano@gmail.com",
-            "phone": "+55 83 98585-6589",
-            "password": "12345a",
-            "contracts": [
-                {
-                    "id": 1,
-                    "name_recipient_id": 1,
-                    "termo": 0001,
-                    "contrato": 001,
-                },
-                {
-                    "id": 2,
-                    "name_recipient_id": 2,
-                    "termo": 00002,
-                    "contrato": 002,
-                },
-                {
-                    "id": 3,
-                    "name_recipient_id": 3,
-                    "termo": 00003,
-                    "contrato": 003,
-                }
-            ]
-        },
-    ],
+   
     "recipient": [
         {
             "id": 1,
@@ -102,6 +44,9 @@
             "tp_atendimento": "A"
         }
     ],
+    "changepass":{
+        "password": "1234ab"
+    },
     "schedules": [
         {
             "id": 1,
