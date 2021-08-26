@@ -1,79 +1,138 @@
 {
-    "recipient":[
+    "clients": [
         {
-            "id":1,
+            "id": 1,
             "name": "Fulano Vicente",
-            "state": "Titular"
+            "cpf": 12345678989,
+            "email": "fulano@gmail.com",
+            "phone": "+55 83 98741-6589",
+            "password": "1234ab",
+            "dependente": false,
+            "contracts": [
+                {
+                    "id": 1,
+                    "name_recipient_id": 1,
+                    "termo": 0001,
+                    "contrato": 001,
+                },
+                {
+                    "id": 2,
+                    "name_recipient_id": 2,
+                    "termo": 00002,
+                    "contrato": 002,
+                },
+                {
+                    "id": 3,
+                    "name_recipient_id": 3,
+                    "termo": 00003,
+                    "contrato": 003,
+                }
+            ]
         },
         {
-            "id":2,
+            "id": 2,
+            "name": "Sicrano Vicente",
+            "cpf": 98765432112,
+            "email": "sicrano@gmail.com",
+            "phone": "+55 83 98585-6589",
+            "password": "12345a",
+            "contracts": [
+                {
+                    "id": 1,
+                    "name_recipient_id": 1,
+                    "termo": 0001,
+                    "contrato": 001,
+                },
+                {
+                    "id": 2,
+                    "name_recipient_id": 2,
+                    "termo": 00002,
+                    "contrato": 002,
+                },
+                {
+                    "id": 3,
+                    "name_recipient_id": 3,
+                    "termo": 00003,
+                    "contrato": 003,
+                }
+            ]
+        },
+    ],
+    "recipient": [
+        {
+            "id": 1,
+            "name": "bixinho Vicente",
+            "state": "Dependente"
+        },
+        {
+            "id": 2,
             "name": "sicrano Vicente",
             "state": "Dependente"
         },
         {
-            "id":3,
+            "id": 3,
             "name": "coisinha Vicente",
             "state": "Dependente"
         }
     ],
-    "services":[
+    "services": [
         {
-            "id":1,
+            "id": 1,
             "description": "ENDOCRINOLOGIA",
             "tp_atendimento": "A"
         },
         {
-            "id":2,
+            "id": 2,
             "description": "PSIQUIATRIA",
             "tp_atendimento": "A-P"
         },
         {
-            "id":3,
+            "id": 3,
             "description": "GINECOLOGIA",
             "tp_atendimento": "A"
         },
         {
-            "id":4,
+            "id": 4,
             "description": "REUMATOLOGIA",
             "tp_atendimento": "A"
         },
         {
-            "id":5,
+            "id": 5,
             "description": "CARDIOLOGIA",
             "tp_atendimento": "A"
         }
     ],
-    "schedules":[
+    "schedules": [
         {
-            "id":1,
+            "id": 1,
             "type_services": "REUMATOLOGIA",
             "date": "05/09/2021",
             "time": "15:00",
             "status": "agendado"
         },
         {
-            "id":2,
+            "id": 2,
             "type_services": "PSIQUIATRIA",
             "date": "10/09/2021",
             "time": "12:00",
             "status": "disponivel"
         },
         {
-            "id":3,
+            "id": 3,
             "type_services": "GINECOLOGIA",
             "date": "24/08/2021",
             "time": "13:00",
             "status": "finalizada"
         },
         {
-            "id":4,
+            "id": 4,
             "type_services": "ENDOCRINLOGIA",
             "date": "03/08/2021",
             "time": "14:00",
             "status": "perdida"
         },
         {
-            "id":5,
+            "id": 5,
             "type_services": "CARDIOLOGIA",
             "date": "05/09/2021",
             "time": "14:00",
