@@ -12,21 +12,19 @@ server.put('/changepass', (req,res) => {
 
     const comparePass = req.body;
     if( comparePass.password === password) {
-        return res.json({status: true})
+        return res.json({status: true, comparePass})
     }else {
-        return res.json({status : false})
+        return res.json({status : false, comparePass})
     }
 })
 
 server.get('/services', (req, res) => {
     const services = [
         {
-            id: 1,
             title: "Agendamento",
             description: "Marque consultas rapidamente"
         },
         {
-            id: 2,
             title: "Teleconsultas",
             description: "Faça sua consulta de casa."
         }
