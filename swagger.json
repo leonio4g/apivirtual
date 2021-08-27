@@ -81,24 +81,14 @@
       "get": {
         "summary": "Fazer listagem dos serviços",
         "description": "Essa rota será responsável por listar os serviços da aplicação",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/services"
-              },
-              "examples": {
-                "password": {
-                  "value": {
-                    "title": "Agendamento",
-                    "description": "Marque suas consultas rapidamente"
-                  }
-                }
-              }
-            }
+        "parameters": [
+          {
+            "name": "services",
+            "in": "params",
+            "description": "Parametro da rota para listagem",
+            "require": true
           }
-        },
+        ],
         "responses": {
           "400": {
             "description": "Error"
