@@ -1,0 +1,121 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Api Virtual Unimed",
+    "description": "Essa Api tem como objetivo mostra rotas e parametros usandos no app",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "changepass": {
+        "type": "boolean",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "comparepass":{
+            "type": "string"
+          }
+        }
+      },
+      "services":{
+        "type": "object",
+        "properties": {
+          "title":{
+            "type": "string"
+          },
+          "description":{
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/changepass": {
+      "put": {
+        "summary": "Fazer alteração da senha",
+        "description": "Essa rota será responsável por fazer a alteração da senha",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/changepass"
+              },
+              "examples": {
+                "password": {
+                  "value": {
+                    "password": "1234ab",
+                    "comparepass": "1234ab"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Senha invalida"
+          },
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "boolean",
+                    "$ref": "#/components/schemas/changepass"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services": {
+      "get": {
+        "summary": "Fazer listagem dos serviços",
+        "description": "Essa rota será responsável por listar os serviços da aplicação",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/services"
+              },
+              "examples": {
+                "password": {
+                  "value": {
+                    "title": "Agendamento",
+                    "description": "Marque suas consultas rapidamente"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Error"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                    "$ref": "#/components/schemas/services"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
