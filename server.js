@@ -22,11 +22,13 @@ server.get('/services', (req, res) => {
     const services = [
         {
             title: "Agendamento",
-            description: "Marque consultas rapidamente"
+            description: "Marque consultas rapidamente",
+            icon: "icomoom/iconAgendamento"
         },
         {
             title: "Teleconsultas",
-            description: "Faça sua consulta de casa."
+            description: "Faça sua consulta de casa.",
+            icon: "icomoom/iconAgendamento"
         }
     ];
 
