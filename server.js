@@ -209,6 +209,29 @@ server.get('/wallet', (req, res) => {
   return res.json({items})
  
 });
+
+var teste = '';
+server.get('/generationCode', (req, res) =>{
+  var code = "";
+  const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 6; i++){
+    code += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  teste = code;
+  console.log(code);
+  return res.json(teste)
+})
+
+server.get('/codevalidation', (req, res) => {
+  const codeEnv = req.body;
+
+  if(codeEnv.recoverypass === teste){
+    return res.json({status: true})
+  }else{
+    return res.json({status: false})
+  }
+})
 const PORT = process.env.PORT || 8000;
 
 server.listen(PORT);
