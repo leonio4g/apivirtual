@@ -12,7 +12,7 @@
   ],
   "components": {
     "schemas": {
-      "changepass": {
+      "change_pass": {
         "type": "boolean",
         "properties": {
           "password": {
@@ -33,11 +33,38 @@
             "type": "string"
           }
         }
+      },
+      "banners":{
+        "type": "object",
+        "properties": {
+          "title":{
+            "type": "string"
+          },
+          "image":{
+            "type": "string"
+          }
+        }
+      },
+      "generation_code":{
+        "type": "object",
+        "properties": {
+          "code":{
+            "type": "string"
+          }
+        }
+      },
+      "code_validation":{
+        "type": "object",
+        "properties": {
+          "code":{
+            "type": "string"
+          }
+        }
       }
     }
   },
   "paths": {
-    "/changepass": {
+    "/change_pass": {
       "put": {
         "summary": "Fazer alteração da senha",
         "description": "Essa rota será responsável por fazer a alteração da senha",
@@ -46,13 +73,13 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "$ref": "#/components/schemas/changepass"
+                "$ref": "#/components/schemas/change_pass"
               },
               "examples": {
                 "password": {
                   "value": {
                     "password": "1234ab",
-                    "comparepass": "1234ab"
+                    "compare_pass": "1234ab"
                   }
                 }
               }
@@ -69,7 +96,7 @@
               "application/x-www-form-urlencoded": {
                 "schema": {
                   "type": "boolean",
-                    "$ref": "#/components/schemas/changepass"
+                    "$ref": "#/components/schemas/change_pass"
                 }
               }
             }
@@ -85,7 +112,7 @@
           {
             "name": "services",
             "in": "params",
-            "description": "Parametro da rota para listagem",
+            "description": "parâmetros da rota para listagem",
             "require": true
           }
         ],
@@ -100,6 +127,106 @@
                 "schema": {
                   "type": "object",
                     "$ref": "#/components/schemas/services"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/banner": {
+      "get": {
+        "summary": "Fazer listagem dos banner",
+        "description": "Essa rota será responsável por listar os banners da aplicação",
+        "parameters": [
+          {
+            "name": "banner",
+            "in": "params",
+            "description": "parâmetros da rota para listagem",
+            "require": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Error"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                    "$ref": "#/components/schemas/banners"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generation_code": {
+      "get": {
+        "summary": "Fazer a criação do código de verificação",
+        "description": "Essa rota será responsável por criar do código de verificação",
+        "parameters": [
+          {
+            "name": "generation_code",
+            "in": "params",
+            "description": "parâmetros da rota de criação",
+            "require": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Error"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                    "$ref": "#/components/schemas/banners"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/code_validation": {
+      "post": {
+        "summary": "Fazer a validação do código e alterar a senha",
+        "description": "Essa rota será responsável por fazer a validação do código e alterar a senha",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/code_validation"
+              },
+              "examples": {
+                "password": {
+                  "value": {
+                    "password": "1234ab",
+                    "comparepass": "1234ab"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Código invalido"
+          },
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "boolean",
+                    "$ref": "#/components/schemas/code_validation"
                 }
               }
             }

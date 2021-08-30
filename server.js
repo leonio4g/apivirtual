@@ -12,7 +12,7 @@ server.use(cors());
 
 server.use('/api-docs', swagger.serve, swagger.setup(swaggerDocs))
 
-server.put('/changepass', (req,res) => {
+server.put('/change_pass', (req,res) => {
     const password = "1234ab"
 
     const comparePass = req.body.password;
@@ -210,28 +210,32 @@ server.get('/wallet', (req, res) => {
  
 });
 
-var teste = '';
-server.get('/generationCode', (req, res) =>{
+var codeValidation = '';
+server.get('/generation_code', (req, res) =>{
   var code = "";
   const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
   for (var i = 0; i < 6; i++){
     code += possible.charAt(Math.floor(Math.random() * possible.length));
   }
-  teste = code;
-  console.log(code);
-  return res.json(teste)
+  codeValidation = code;
+  return res.json(codeValidation);
 })
 
-server.get('/codevalidation', (req, res) => {
-  const codeEnv = req.body;
-
-  if(codeEnv.recoverypass === teste){
+server.post('/code_validation', (req, res) => {
+  const {code} = req.body;
+  if(code === codeValidation){
     return res.json({status: true})
   }else{
     return res.json({status: false})
   }
 })
+
+server.put('/recovery_pass', (req, res) => {
+  return res.json('Senha Alterada')
+});
+
+
 const PORT = process.env.PORT || 8000;
 
 server.listen(PORT);
