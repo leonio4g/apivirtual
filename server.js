@@ -235,6 +235,21 @@ server.put('/recovery_pass', (req, res) => {
   return res.json('Senha Alterada')
 });
 
+var cpf_user = '12345678912';
+var user = {
+  email: 'fulano@gmail.com',
+  phone: '(83) 95412-5454'
+};
+
+server.get('/validation_user', (req, res) => {
+  const {cpf} = req.query;
+  if(cpf === cpf_user){
+    return res.json({user})
+  }else{
+    return res.status(400).json({ error: 'cpf invalido' });
+  }
+})
+
 
 const PORT = process.env.PORT || 8000;
 

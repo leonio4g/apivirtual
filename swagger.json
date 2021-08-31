@@ -60,6 +60,17 @@
             "type": "string"
           }
         }
+      },
+      "validation_user": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "phone":{
+            "type":"string"
+          }
+        }
       }
     }
   },
@@ -227,6 +238,36 @@
                 "schema": {
                   "type": "boolean",
                     "$ref": "#/components/schemas/code_validation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/validation_user": {
+      "get": {
+        "summary": "Fazer validação do usuário",
+        "description": "Essa rota será responsável por fazer a validação com cpf se usuário existe e retornar dados essenciais para prosseguir com fluxo",
+        "parameters": [
+          {
+            "name": "cpf",
+            "in": "query",
+            "description": "parâmetros da rota de validação do usuário",
+            "require": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "cpf invalido"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                    "$ref": "#/components/schemas/validation_user"
                 }
               }
             }
